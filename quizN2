@@ -1,0 +1,64 @@
+# 1
+
+# class Fruit:
+#     def __init__(self, name, weight):
+#         self.name = name
+#         self.weight = weight
+#
+#     def __add__(self, other):
+#         if isinstance(other, Fruit):
+#             if  self.name == other.name:
+#                 new_weight = self.weight + other.weight
+#                 return Fruit(self.name, new_weight)
+#             else:
+#                 raise ValueError('They have different name')
+#
+#         else:
+#             raise TypeError('This type is not correct')
+#
+#     def __eq__(self, other):
+#         if isinstance(other, Fruit):
+#             if self.name == other.name:
+#                 return self.name == other.name
+#             else:
+#                 return self.name == other.name
+#         else:
+#             raise TypeError('This type is not correct')
+#
+#
+#
+# f1 = Fruit('banana', 2)
+# f2 = Fruit('banana', 4)
+# f3 = Fruit('peach', 1.20)
+# f4 = Fruit('peach', 2)
+# print(f1 + f2)   # რადგან __strs__(self) მეთოდი არ მაქვს გაწერილი, output-ში პირდაპირ შეკრებილ წონას არ გამოგვიტანს
+# print(f1 + f3)
+# print(f1 == f2)
+# print(f1 == f4)
+
+
+
+# 2
+
+# import sqlite3
+#
+# conn = sqlite3.connect('morty.db')
+# cursor = conn.cursor()
+# cursor.execute('''CREATE TABLE IF NOT EXISTS dogs
+#                 (first_name VARCHAR (20),
+#                  age FLOAT,
+#                  color VARCHAR (20)
+#                  )''')
+#
+# d_title = 'Nene'
+# d_age = 2.0  # აქ იგულისხმება თვეებიც, ამიტომ გავწერე age-ზე FLOAT ტიპი
+# d_color = 'white'
+#
+# cursor.execute("INSERT INTO dogs (first_name, age, color) VALUES ('Max', 0.8, 'brown')")
+# cursor.execute("INSERT INTO dogs (first_name, age, color) VALUES (?, ?, ?)", (d_title, d_age, d_color))
+#
+# conn.commit()
+# conn.close()
+
+
+
