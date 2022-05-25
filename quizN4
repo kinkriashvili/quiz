@@ -13,17 +13,17 @@ while number < 3:
     for each in is_:
         url = each.div.a.attrs.get("href")
         list_flags.append(url)
+
     number += 1
     site = []
 
     for each in list_flags:
-        url_1 = (f'http://www.heraldika.ge/{each}')
+        url_1 = f'http://www.heraldika.ge/{each}'
         site.append(url_1)
-
-    print(site)
 
     list_1 = []
     list_2 = []
+
     for all in site:
         r = requests.get(all)
         page = BeautifulSoup(r.text, 'html.parser')
@@ -35,32 +35,28 @@ while number < 3:
         list_1.append(c_o_a_1)
         list_2.append(f2)
 
-        c_list = []
-        f_list = []
+    c_list = []
+    f_list = []
 
-        for each in list_1:
-            url_1 = (f'http://www.heraldika.ge/{each}')
-            c_list.append(url_1)
+    for each in list_1:
+        url_1 = f'http://www.heraldika.ge/{each}'
+        c_list.append(url_1)
 
-        for each in list_2:
-            url_1 = (f'http://www.heraldika.ge/{each}')
-            f_list.append(url_1)
+    for each in list_2:
+        url_1 = f'http://www.heraldika.ge/{each}'
+        f_list.append(url_1)
 
-        for flag in f_list:
-            response_1 = requests.get(flag)
-            text = str(flag)
-            another_spl = text.split('/')[5]
-            with open(another_spl, 'wb') as file:
-                file.write(response_1.content)
-                file.close()
-
-        for coat in c_list:
-            req = requests.get(coat)
-            text= str(coat)
-            another_spl = text.split('/')[5]
-            file = open(another_spl, 'wb')
-            file.write(req.content)
+    for flag in f_list:
+        response_1 = requests.get(flag)
+        text = str(flag)
+        another_spl = text.split('/')[5]
+        with open(another_spl, 'wb') as file:
+            file.write(response_1.content)
             file.close()
-            
-            
-            
+
+    for coat in c_list:
+        req = requests.get(coat)
+        text = str(coat)
+        another_spl = text.split('/')[5]
+        file = open(another_spl, 'wb')
+        file.write(req.content)
